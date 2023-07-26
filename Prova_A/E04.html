@@ -9,11 +9,28 @@
     */
     
     //Entrada
-
-
+    const fotosRevelar = Number(prompt(`Quantas fotos você deseja revelar?`));
     //Processamento
-
-
+    const valorNormal = fotosRevelar * 0.15;
+    const tempo = fotosRevelar * 1;
     //Saída
+    if (fotosRevelar === 0 || fotosRevelar < 0) {
+        alert (`Por favor digite um valor positivo`);
+    }
+    
+    else if (fotosRevelar === 1) {
+        alert(`O valor total a ser pago será de R$0,15 e o tempo gasto será de 1 minuto`); // Fiz isso para caso o usuário digite 1 foto revelada a resposta não "seja 1 minutos" e sim 1 minuto
+    }
 
+    else if(fotosRevelar <= 60) {
+        alert(`O valor total a ser pago será de R$${valorNormal.toFixed(2).replace("." , ",")} e o tempo gasto na loja será de\nTempo gasto: ${tempo} minutos`);
+    }
+
+     else if (fotosRevelar > 60 && fotosRevelar <= 100) {
+        alert(`O valor total a ser pago será de R$${(valorNormal - (valorNormal * 0.1)).toFixed(2).replace("." , ",")} e o tempo gasto na loja será de\nTempo gasto: ${tempo} minutos`);
+    }
+
+    else if (fotosRevelar > 100) {
+        alert(`O valor total a ser pago será de R$${(valorNormal - (valorNormal * 0.15)).toFixed(2).replace("." , ",")} e o tempo gasto na loja será de\nTempo gasto: ${tempo} minutos`);
+    }
 </script>

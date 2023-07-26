@@ -7,18 +7,78 @@
     - G-Gerente: R$ 30,00 por hora
     - S-Supervisor: R$ 22,00 por hora
     - A-Atendente: R$ 15,00 por hora
-    Sobre o tempo de trabalho, consisdere que:
+    Sobre o tempo de trabalho, considere que:
     - Se o funcionário possuir mais de 2 anos de empresa, ele recebe um bônus de 15% sobre o salário bruto
     - Se o funcionário possuir mais de 4 anos de empresa, ele recebe um bônus de 25% sobre o salário bruto
     - Se o funcionário possuir mais de 6 anos de empresa, ele recebe um bônus de 40% sobre o salário bruto
     */
     
     //Entrada
+    const cargo = prompt(`Informe o seu cargo na empresa: G - Gerente, S - Supervisor ou A - Atendente`).toUpperCase().trim();
 
-
+    const anos = Number(prompt(`Informe a quantos anos você está nessa empresa`));
     //Processamento
+    const gerente = 40 * 30;
+    const supervisor = 40 * 22;
+    const atendente = 40 * 15;
 
+    if (cargo === "G") {
+        if (anos <= 2) {
+            alert (`Seu salário será de R$${gerente.toFixed(2).replace("." , ",")}`);
+        }
 
+        else if (anos > 2 && anos <= 4) {
+            alert (`Seu salário será de R$${(gerente + (gerente * 0.15)).toFixed(2).replace("." , ",")}`);
+        }
+
+        else if (anos > 4 && anos <= 6) {
+            alert (`Seu salário será de R$${(gerente + (gerente * 0.25)).toFixed(2).replace("." , ",")}`);
+        }
+
+        else if (anos > 6) {
+            alert (`Seu salário será de R$${(gerente + (gerente * 0.4)).toFixed(2).replace("." , ",")}`);
+        }
+    }
+
+    else if (cargo === "S") {
+        if (anos <= 2) {
+            alert (`Seu salário será de R$${supervisor.toFixed(2).replace("." , ",")}`);
+        }
+
+        else if (anos > 2 && anos <= 4) {
+            alert (`Seu salário será de R$${(supervisor + (supervisor * 0.15)).toFixed(2).replace("." , ",")}`);
+        }
+
+        else if (anos > 4 && anos <= 6) {
+            alert (`Seu salário será de R$${(supervisor + (supervisor * 0.25)).toFixed(2).replace("." , ",")}`);
+        }
+
+        else if (anos > 6) {
+            alert (`Seu salário será de R$${(supervisor + (supervisor * 0.4)).toFixed(2).replace("." , ",")}`);
+        }
+    }
+
+    else if (cargo === "A") {
+        if (anos <= 2) {
+            alert (`Seu salário será de R$${atendente.toFixed(2).replace("." , ",")}`);
+        }
+
+        else if (anos > 2 && anos <= 4) {
+            alert (`Seu salário será de R$${(atendente + (atendente * 0.15)).toFixed(2).replace("." , ",")}`);
+        }
+
+        else if (anos > 4 && anos <= 6) {
+            alert (`Seu salário será de R$${(atendente + (atendente * 0.25)).toFixed(2).replace("." , ",")}`);
+        }
+
+        else if (anos > 6) {
+            alert (`Seu salário será de R$${(atendente + (atendente * 0.4)).toFixed(2).replace("." , ",")}`);
+        }
+    }
+
+    else {
+        alert(`Cargo errado!`);
+    }
     //Saída
 
 </script>

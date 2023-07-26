@@ -7,11 +7,27 @@
     */
     
     //Entrada
+    const intensidade = prompt(`Informe a intensidade do café: FR (Fraco), M (Médio) ou FT (Forte)`).toUpperCase().trim().replace(" " , ""); //replace para ignorar o espaço entre as palavras
 
-
+    const quantidadeMl = Number(prompt(`Informe a quantidade de café em ML`));
     //Processamento
-
+    
+    const verificacaoMl = Math.floor(quantidadeMl / 100);
 
     //Saída
+    if (intensidade === "FR") {
+        alert (`A quantidade de café com intensidade fraca em gramas é de ${verificacaoMl * 10}g`);
+    }
 
+    else if (intensidade === "M") {
+        alert (`A quantidade de café com intensidade média em gramas é de ${verificacaoMl * 15}g`);
+    }
+
+    else if (intensidade === "FT") {
+        alert (`A quantidade de café com intensidade forte em gramas é de ${verificacaoMl * 20}g`);
+    }
+
+    else {
+        alert (`Intensidade errada!`);
+    }
 </script>

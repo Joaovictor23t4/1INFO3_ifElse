@@ -11,11 +11,59 @@
     */
     
     //Entrada
+    const valorVeiculo = Number(prompt(`Informe o valor do veículo`).replace("," , "."));
+    const entrada = Number(prompt(`Informe o valor da entrada`).replace("," , "."));
+    let numeroParcelas = Number(prompt(`Informe o número de parcelas`));
+    let valorParcela;
 
+    if (numeroParcelas < 12) {
+        valorParcela = (valorVeiculo - entrada) / numeroParcelas;
 
-    //Processamento
+        if (valorParcela > 1000) {
+            if (confirm(`Sua parcela ficou acima de 1000, você deseja aumentar o valor de parcelas para que ela diminua de valor?`)) {
+                numeroParcelas = Number(prompt(`Qual o número de parcelas que você deseja?`));
 
+                if (numeroParcelas < 12) {
+                    valorParcela = (valorVeiculo - entrada) / numeroParcelas;
 
-    //Saída
+                    alert (`O valor de cada parcela será de R$${valorParcela.toFixed(2).replace("." , ",")}`);
+                }
 
+                else {
+                    valorParcela = (valorVeiculo - entrada) / numeroParcelas;
+                    valorParcela = valorParcela + (valorParcela * 0.1);
+
+                    alert (`O valor da parcela será de R$${valorParcela.toFixed(2).replace("." , ",")}`);
+                }
+            }
+
+            else {
+                alert(`OK, o valor de cada parcela será de R$${valorParcela.toFixed(2).replace("." , ",")}`)
+            }
+        }
+
+        alert(`O valor de cada parcela será de R$${valorParcela.toFixed(2).replace("." , ",")}`)
+    }
+
+    else {
+        valorParcela = (valorVeiculo - entrada) / numeroParcelas;
+        valorParcela = valorParcela + (valorParcela * 0.1);
+
+        if (valorParcela > 1000) {
+            confirm(`Sua parcela ficou acima de 1000, você deseja aumentar o valor de parcelas para que ela diminua de valor?`);
+
+            if (confirm === true) {
+                numeroParcelas = Number(prompt(`Qual o número de parcelas que você deseja?`));
+
+                valorParcela = (valorVeiculo - entrada) / numeroParcelas;
+                valorParcela = valorParcela + (valorParcela * 0.1);
+
+                alert (`O valor da parcela será de R$${valorParcela.toFixed(2).replace("." , ",")}`);
+            }
+
+            else {
+                alert(`OK, o valor de cada parcela será de R$${valorParcela.toFixed(2).replace("." , ",")}`)
+            }
+        }
+    }
 </script>
